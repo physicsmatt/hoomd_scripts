@@ -269,10 +269,12 @@ setup_steps = 22000 #sum of all steps in the previous four lines. Automate?
 
 #This is the final "annealing" phase.
 gsd_dump = hoomd.dump.gsd(filestringbase + filestring + '.gsd',
-                          period=final_dump_period, phase = setup_steps % final_dump_period, 
+                          period=final_dump_period, 
+                          phase = (setup_steps  -1 ) % final_dump_period + 1,
                           group=groupAB, dynamic=['momentum'], overwrite=False)
 restart_dump = hoomd.dump.gsd(restart_filename, 
-                          period=restart_period, phase = setup_steps % restart_period, 
+                          period=restart_period, 
+                          phase = (setup_steps  -1 ) % restart_period + 1,
                           group = groupall, dynamic=['momentum'], truncate=True)
 if not restarting_from_file:
     gsd_dump.write_restart()
