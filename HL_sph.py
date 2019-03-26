@@ -168,9 +168,9 @@ def define_lj_bonds():
     nl_lj.reset_exclusions(exclusions = [])
     lj = hoomd.md.pair.lj(r_cut=r_cut_glob, nlist=nl_lj)
     lj.set_params(mode="xplor")
-    lj.pair_coeff.set('A', 'A', epsilon=1.0, sigma=1.0, r_cut=r_cut_glob, r_on=2.5)
-    lj.pair_coeff.set('A', 'B', epsilon=epsilonab, sigma=1.0, r_cut=r_cut_glob, r_on=2.5)
-    lj.pair_coeff.set('B', 'B', epsilon=1.0, sigma=1.0, r_cut=r_cut_glob, r_on=2.5)
+    lj.pair_coeff.set('A', 'A', epsilon=1.0, sigma=1.0, r_cut=r_cut_glob, r_on=2.0)
+    lj.pair_coeff.set('A', 'B', epsilon=epsilonab, sigma=1.0, r_cut=r_cut_glob, r_on=2.0)
+    lj.pair_coeff.set('B', 'B', epsilon=1.0, sigma=1.0, r_cut=r_cut_glob, r_on=2.0)
     lj.pair_coeff.set(['Te','Ti'], ['Te','Ti'], epsilon=0.0, sigma=1.0, r_cut=False)
     lj.pair_coeff.set(['A','B'], ['Te','Ti'], epsilon=0.0, sigma=1.0, r_cut=False)
 

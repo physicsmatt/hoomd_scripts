@@ -178,9 +178,9 @@ def define_lj_bonds():
     nl_lj.reset_exclusions(exclusions = [])
     lj = hoomd.md.pair.lj(r_cut=r_cut_glob, nlist=nl_lj)
     lj.set_params(mode="xplor")
-    lj.pair_coeff.set('A', 'A', epsilon=epsilonaa, sigma=1.0, r_cut=r_cut_glob, r_on=2.5)
-    lj.pair_coeff.set('A', 'B', epsilon=epsilonab, sigma=1.0, r_cut=r_cut_glob, r_on=2.5)
-    lj.pair_coeff.set('B', 'B', epsilon=1.0, sigma=1.0, r_cut=r_cut_glob, r_on=2.5)
+    lj.pair_coeff.set('A', 'A', epsilon=epsilonaa, sigma=1.0, r_cut=r_cut_glob, r_on=2.0)
+    lj.pair_coeff.set('A', 'B', epsilon=epsilonab, sigma=1.0, r_cut=r_cut_glob, r_on=2.0)
+    lj.pair_coeff.set('B', 'B', epsilon=1.0, sigma=1.0, r_cut=r_cut_glob, r_on=2.0)
     lj.pair_coeff.set(['A','B', 'T'], 'T', epsilon=0.0, sigma=1.0, r_cut=False)
 
 def do_disordering(kT=5.0, steps = 1e4, dump_period=2000):
